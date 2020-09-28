@@ -19,7 +19,9 @@ module.exports = {
 		'sourceType': 'module'
 	},
 	'plugins': [
-		'react'
+		'react',
+		'react-hooks',
+		'prettier',
 	],
 	'rules': {
 		'indent': [
@@ -37,6 +39,7 @@ module.exports = {
 		'semi': [
 			'error',
 			'always'
-		]
+		],
+		'prettier/prettier': 'error',
 	}
 };
