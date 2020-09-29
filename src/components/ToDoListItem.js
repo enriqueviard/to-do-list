@@ -20,39 +20,42 @@ export default function TodoListItem({item}) {
   const onEdit = () => {
     if (editing) {
       dispatch(edit({key: item.key, name: name}));
-    setEditing(false);
+      setEditing(false);
     } else {
       setName(item.name);
-    setEditing(true);
+      setEditing(true);
     }
   };
 
   return (
-    <TouchableOpacity style={styles.container}
-                      onPress={onPress}>
-      <MaterialIcons name={item.done ? 'check-circle-outline' : 'radio-button-unchecked'}
-                     size={20}
-                     style={{paddingHorizontal: 10}}
-                     color={item.done ? 'green' : '#545454'}
+    <TouchableOpacity style={styles.container} onPress={onPress}>
+      <MaterialIcons
+        name={item.done ? 'check-circle-outline' : 'radio-button-unchecked'}
+        size={20}
+        style={{paddingHorizontal: 10}}
+        color={item.done ? 'green' : '#545454'}
       />
       {editing ?
-        <TextInput value={name}
-                   multiline
-                   onChangeText={setName}
-                   style={styles.input}/> :
+        <TextInput
+          value={name}
+          multiline
+          onChangeText={setName}
+          style={styles.input}/> :
         <Text style={styles.title(item.done)}>{item.name}</Text>
       }
       <TouchableOpacity onPress={onEdit}>
-        <MaterialIcons name={editing ? 'save' : 'edit'}
-                       style={{paddingHorizontal: 8}}
-                       color={'#565cd6'}
-                       size={20}/>
+        <MaterialIcons
+          name={editing ? 'save' : 'edit'}
+          style={{paddingHorizontal: 8}}
+          color={'#333ac2'}
+          size={20}/>
       </TouchableOpacity>
       <TouchableOpacity onPress={onRemove}>
-        <MaterialIcons name={'delete'}
-                       style={{paddingHorizontal: 8}}
-                       color={'#ff3333'}
-                       size={20}/>
+        <MaterialIcons
+          name={'delete'}
+          style={{paddingHorizontal: 8}}
+          color={'#ff3333'}
+          size={20}/>
       </TouchableOpacity>
     </TouchableOpacity>
   );

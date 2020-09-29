@@ -19,10 +19,11 @@ export default function ListHeader() {
     <View style={styles.container}>
       <Text style={styles.title}>{'Tasks'}</Text>
       <TouchableOpacity style={{position: 'absolute', right: 20}}>
-        <MaterialCommunityIcons name={'plus-circle'}
-                                color={'green'}
-                                onPress={onAddTask}
-                                size={30}
+        <MaterialCommunityIcons
+          name={'plus-circle'}
+          color={'green'}
+          onPress={onAddTask}
+          size={30}
         />
       </TouchableOpacity>
     </View>
