@@ -29,8 +29,8 @@ const toDoSlice = createSlice({
       state.items = [...state.items, action.payload];
     },
     edit: (state, action) => {
-      action.payload.done = !action.payload.done;
-      state.items = [...state.items, action.payload];
+      const item = state.items.find((i) => i.key === action.payload);
+      item.done = !item.done;
     },
     remove: (state, action) => {
       state.items = state.items.filter((item) => item.key !== action.payload);
@@ -38,6 +38,6 @@ const toDoSlice = createSlice({
   },
 });
 
-export const {add, remove} = toDoSlice.actions;
+export const {add, remove, edit} = toDoSlice.actions;
 
 export default toDoSlice.reducer;
