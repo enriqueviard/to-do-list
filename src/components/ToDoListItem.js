@@ -6,11 +6,11 @@ import {edit, remove, toggle} from '../redux/toDoSlice';
 
 export default function TodoListItem({item}) {
   const dispatch = useDispatch();
-  const [editing, setEditing] = useState();
+  const [editing, setEditing] = useState(!item.name);
   const [name, setName] = useState('');
 
   const onPress = () => {
-    dispatch(toggle(item));
+    dispatch(toggle(item.key));
   };
 
   const onRemove = () => {

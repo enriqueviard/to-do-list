@@ -11,7 +11,6 @@ export default function ListHeader() {
     dispatch(
       add({
         key: Math.floor(Math.random() * 100000) + 1,
-        name: 'new task',
       }),
     );
   };
