@@ -3,6 +3,7 @@ import {FlatList, StyleSheet, View} from 'react-native';
 import {useSelector} from 'react-redux';
 import ToDoListItem from './ToDoListItem';
 import ListHeader from './ListHeader';
+import ListEmpty from './ListEmpty';
 
 export default function ToDoList() {
   const data = useSelector(state => state.items);
@@ -14,6 +15,7 @@ export default function ToDoList() {
                 renderItem={({item}) => <ToDoListItem item={item}/>
                 }
                 ListHeaderComponent={ListHeader}
+                ListEmptyComponent={ListEmpty}
       />
     </View>
   );
