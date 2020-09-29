@@ -12,14 +12,14 @@ import {
   StatusBar,
 } from 'react-native';
 import {Provider} from 'react-redux';
-import {ToDoList} from './src/components/ToDoList';
+import ToDoList from './src/components/ToDoList';
 import {store} from './src/redux/configureStore';
 
 const App: () => React$Node = () => {
   return (
     <Provider store={store}>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{flex: 1, backgroundColor: '#eee'}}>
         <ToDoList/>
       </SafeAreaView>
     </Provider>
