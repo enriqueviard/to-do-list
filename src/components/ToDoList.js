@@ -5,9 +5,7 @@ import ToDoListItem from './ToDoListItem';
 import ListHeader from './ListHeader';
 
 export default function ToDoList() {
-
   const data = useSelector(state => state.items);
-  // const sortedData = data.sort(((a, b) => a.done > b.done));
 
   return (
     <View style={styles.container}>

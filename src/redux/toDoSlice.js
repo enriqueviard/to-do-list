@@ -7,37 +7,38 @@ const toDoSlice = createSlice({
       {
         key: 1,
         name: 'Create repository',
-        date: new Date(2020, 9, 25, 12, 0, 0),
         done: true,
       },
       {
         key: 2,
         name: 'Create RN App with React Native CLI',
-        date: new Date(2020, 9, 27, 12, 0, 0),
         done: true,
       },
       {
         key: 3,
         name: 'Deploy App',
-        date: new Date(2020, 9, 28, 12, 0, 0),
         done: false,
       },
     ],
   },
   reducers: {
     add: (state, action) => {
-      state.items = [...state.items, action.payload];
+      state.items = [action.payload, ...state.items];
     },
-    edit: (state, action) => {
+    toggle: (state, action) => {
       const item = state.items.find((i) => i.key === action.payload);
       item.done = !item.done;
     },
     remove: (state, action) => {
       state.items = state.items.filter((item) => item.key !== action.payload);
     },
+    edit: (state, action) => {
+      const item = state.items.find((i) => i.key === action.payload.key);
+      item.name = action.payload.name;
+    },
   },
 });
 
-export const {add, remove, edit} = toDoSlice.actions;
+export const {add, remove, toggle, edit} = toDoSlice.actions;
 
 export default toDoSlice.reducer;
